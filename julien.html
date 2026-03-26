@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suivi de tournois</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <p class="eyebrow">Gestion de bankroll</p>
+      <h1>Suivi de tournois</h1>
+      <p class="subtitle">
+        Sélectionne un dossier de sauvegarde, charge automatiquement le fichier JSON le plus récent, puis ajoute et sauvegarde tes résultats.
+      </p>
+    </header>
+
+    <section class="card">
+      <h2>Dossier de sauvegarde</h2>
+      <div class="button-row">
+        <button id="choisirDossierBtn" class="btn btn-primary">Choisir le dossier</button>
+        <button id="chargerRecentBtn" class="btn btn-secondary">Charger le plus récent</button>
+        <button id="sauvegarderBtn" class="btn btn-success">Sauvegarder</button>
+      </div>
+      <p id="status" class="status">Aucun dossier sélectionné.</p>
+    </section>
+
+    <section class="card">
+      <h2>Ajouter un tournoi</h2>
+      <div class="form-grid">
+        <div class="field">
+          <label for="date">Date</label>
+          <input type="date" id="date" />
+        </div>
+
+        <div class="field">
+          <label for="buyin">Prix du tournoi (€)</label>
+          <input type="number" id="buyin" min="0" step="0.01" placeholder="Ex : 10" />
+        </div>
+
+        <div class="field">
+          <label for="resultat">Résultat / gain (€)</label>
+          <input type="number" id="resultat" min="0" step="0.01" placeholder="Ex : 25" />
+        </div>
+      </div>
+
+      <div class="button-row top-gap">
+        <button id="ajouterBtn" class="btn btn-primary">Ajouter</button>
+        <button id="toutSupprimerBtn" class="btn btn-danger">Tout supprimer</button>
+      </div>
+    </section>
+
+    <section class="grid-stats">
+      <div class="stat-card">
+        <span class="stat-label">Tournois</span>
+        <strong id="nbTournois" class="stat-value">0</strong>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Coût total</span>
+        <strong id="coutTotal" class="stat-value">0.00 €</strong>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Gains totaux</span>
+        <strong id="gainsTotaux" class="stat-value">0.00 €</strong>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Bénéfice net</span>
+        <strong id="beneficeNet" class="stat-value">0.00 €</strong>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">ROI</span>
+        <strong id="roi" class="stat-value">0.00 %</strong>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="table-header">
+        <h2>Historique</h2>
+        <span id="tableInfo" class="table-info">Aucune donnée chargée</span>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Buy-in</th>
+              <th>Résultat</th>
+              <th>Bénéfice</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="table"></tbody>
+        </table>
+      </div>
+
+      <p id="emptyMessage" class="empty-message">Aucun tournoi enregistré.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
