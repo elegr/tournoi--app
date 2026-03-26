@@ -508,37 +508,43 @@ tbody tr:hover {
 
 .info {
   position: relative;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background: linear-gradient(180deg, #2a3448, #1a2233);
   border: 1px solid rgba(244, 197, 66, 0.4);
   color: #f4c542;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: bold;
   cursor: pointer;
 }
 
+/* IMPORTANT : caché par défaut */
 .tooltip {
   position: absolute;
-  bottom: -10px;
+  top: 30px;
   left: 50%;
-  transform: translate(-50%, 100%);
-  background: #111;
+  transform: translateX(-50%);
+  background: #0f1522;
   color: white;
-  padding: 10px;
-  border-radius: 8px;
-  width: 220px;
-  font-size: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  width: 280px;
+  font-size: 13px;
+  line-height: 1.5;
+  border: 1px solid #2a3448;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
   opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s;
+  visibility: hidden;
 }
 
+/* affiché uniquement au survol */
 .info:hover .tooltip {
   opacity: 1;
+  visibility: visible;
 }
 }
