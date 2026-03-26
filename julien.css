@@ -81,6 +81,11 @@ body.poker-theme {
   color: white;
   font-weight: bold;
   cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
 }
 
 .btn-primary { background: var(--blue); }
@@ -98,6 +103,8 @@ body.poker-theme {
 .field label {
   color: var(--gold);
   font-size: 12px;
+  display: block;
+  margin-bottom: 5px;
 }
 
 .field input,
@@ -125,9 +132,14 @@ body.poker-theme {
 
 .stat-value {
   font-size: 22px;
+  font-weight: bold;
 }
 
 /* TABLE */
+.table-wrapper {
+  overflow-x: auto;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -135,66 +147,81 @@ table {
 
 th, td {
   padding: 10px;
+  text-align: center;
   border-bottom: 1px solid #222;
 }
 
 th {
   color: var(--gold);
+  text-transform: uppercase;
+  font-size: 12px;
 }
 
-/* TOOLTIP */
+/* TOOLTIP - CORRIGÉ */
 .section-title-row {
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-bottom: 15px;
+}
+
+.section-title-row h2 {
+  margin: 0;
 }
 
 .info {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 22px;
   height: 22px;
   border-radius: 50%;
   background: linear-gradient(180deg, #2a3448, #1a2233);
   border: 1px solid rgba(244, 197, 66, 0.4);
   color: var(--gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 13px;
-  cursor: pointer;
+  font-weight: bold;
+  cursor: help;
+  z-index: 1;
 }
 
 .tooltip {
   position: absolute;
-  top: 30px;
+  top: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
-  width: 300px;
+  width: 280px;
   padding: 12px;
   border-radius: 10px;
   background: #0f1522;
   border: 1px solid #2a3448;
   color: white;
   font-size: 13px;
+  line-height: 1.5;
   opacity: 0;
   visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  pointer-events: none;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* flèche */
+/* flèche du tooltip */
 .tooltip::before {
   content: "";
   position: absolute;
   top: -6px;
   left: 50%;
+  transform: translateX(-50%) rotate(45deg);
   width: 12px;
   height: 12px;
   background: #0f1522;
   border-left: 1px solid #2a3448;
   border-top: 1px solid #2a3448;
-  transform: translateX(-50%) rotate(45deg);
 }
 
-/* apparition */
+/* apparition au survol */
 .info:hover .tooltip {
   opacity: 1;
   visibility: visible;
@@ -205,19 +232,36 @@ th {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
+  margin-top: 20px;
 }
 
 .chart-box {
   background: #0b1019;
   padding: 15px;
   border-radius: 12px;
+  border: 1px solid #1f293d;
+}
+
+.chart-box h3 {
+  color: var(--gold);
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 16px;
 }
 
 /* MOBILE */
 @media (max-width: 760px) {
-  .form-grid { grid-template-columns: 1fr; }
-  .grid-stats { grid-template-columns: 1fr; }
-  .charts-grid { grid-template-columns: 1fr; }
+  .form-grid { 
+    grid-template-columns: 1fr; 
+  }
+  
+  .grid-stats { 
+    grid-template-columns: 1fr; 
+  }
+  
+  .charts-grid { 
+    grid-template-columns: 1fr; 
+  }
 
   .tooltip {
     width: 240px;
@@ -228,5 +272,10 @@ th {
   .tooltip::before {
     left: 20px;
     transform: rotate(45deg);
+  }
+  
+  .info:hover .tooltip {
+    left: 0;
+    transform: none;
   }
 }
