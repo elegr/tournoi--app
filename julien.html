@@ -2,18 +2,14 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Poker Tournament Tracker</title>
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body class="poker-theme">
-
   <main class="app">
 
-    <!-- HEADER -->
     <header class="hero">
       <p class="eyebrow">Poker bankroll manager</p>
       <h1>♠ Poker Tournament Tracker ♣</h1>
@@ -22,7 +18,6 @@
       </p>
     </header>
 
-    <!-- DOSSIER -->
     <section class="card">
       <h2>Dossier de sauvegarde</h2>
 
@@ -35,12 +30,10 @@
       <p id="status" class="status">Aucun dossier sélectionné.</p>
     </section>
 
-    <!-- FORMULAIRE -->
     <section class="card">
       <h2>Ajouter un tournoi</h2>
 
       <div class="form-grid">
-
         <div class="field">
           <label for="date">Date</label>
           <input type="date" id="date" />
@@ -48,14 +41,22 @@
 
         <div class="field">
           <label for="buyin">Buy-in (€)</label>
-          <input type="number" id="buyin" min="0" step="0.01" placeholder="Ex : 10" />
+          <select id="buyin">
+            <option value="">Choisir un buy-in</option>
+            <option value="250">250 €</option>
+            <option value="150">150 €</option>
+            <option value="100">100 €</option>
+            <option value="50">50 €</option>
+            <option value="20">20 €</option>
+            <option value="10">10 €</option>
+            <option value="5">5 €</option>
+          </select>
         </div>
 
         <div class="field">
           <label for="resultat">Résultat (€)</label>
           <input type="number" id="resultat" min="0" step="0.01" placeholder="Ex : 25" />
         </div>
-
       </div>
 
       <div class="button-row top-gap">
@@ -64,41 +65,39 @@
       </div>
     </section>
 
-  <section class="card">
-  <div class="table-header">
-    <h2>Graphiques</h2>
+    <section class="card">
+      <div class="table-header">
+        <h2>Graphiques</h2>
 
-    <div class="chart-toolbar">
-      <label for="filtreBuyin">Échantillon :</label>
-      <select id="filtreBuyin">
-        <option value="all">Tout</option>
-        <option value="250">250 €</option>
-        <option value="150">150 €</option>
-        <option value="100">100 €</option>
-        <option value="50">50 €</option>
-        <option value="20">20 €</option>
-        <option value="10">10 €</option>
-        <option value="5">5 €</option>
-      </select>
-    </div>
-  </div>
+        <div class="chart-toolbar">
+          <label for="filtreBuyin">Échantillon :</label>
+          <select id="filtreBuyin">
+            <option value="all">Tout</option>
+            <option value="250">250 €</option>
+            <option value="150">150 €</option>
+            <option value="100">100 €</option>
+            <option value="50">50 €</option>
+            <option value="20">20 €</option>
+            <option value="10">10 €</option>
+            <option value="5">5 €</option>
+          </select>
+        </div>
+      </div>
 
-  <div class="charts-grid">
-    <div class="chart-box">
-      <h3>Bankroll over time</h3>
-      <canvas id="bankrollChart"></canvas>
-    </div>
+      <div class="charts-grid">
+        <div class="chart-box">
+          <h3>Bankroll over time</h3>
+          <canvas id="bankrollChart"></canvas>
+        </div>
 
-    <div class="chart-box">
-      <h3>Monthly performance</h3>
-      <canvas id="monthlyChart"></canvas>
-    </div>
-  </div>
-</section>
+        <div class="chart-box">
+          <h3>Monthly performance</h3>
+          <canvas id="monthlyChart"></canvas>
+        </div>
+      </div>
+    </section>
 
-    <!-- STATS -->
     <section class="grid-stats">
-
       <div class="stat-card">
         <span class="stat-label">Tournois</span>
         <strong id="nbTournois" class="stat-value">0</strong>
@@ -123,12 +122,9 @@
         <span class="stat-label">ROI</span>
         <strong id="roi" class="stat-value">0.00 %</strong>
       </div>
-
     </section>
 
-    <!-- TABLEAU -->
     <section class="card">
-
       <div class="table-header">
         <h2>Historique des tournois</h2>
         <span id="tableInfo" class="table-info">Aucune donnée chargée</span>
@@ -152,13 +148,11 @@
       <p id="emptyMessage" class="empty-message">
         Aucun tournoi enregistré.
       </p>
-
     </section>
 
   </main>
 
-  <!-- SCRIPT -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="script.js"></script>
-
 </body>
 </html>
