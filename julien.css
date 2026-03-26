@@ -53,6 +53,29 @@ body.poker-theme {
   color: var(--muted);
 }
 
+/* Image dans le hero */
+.hero-image {
+  margin-top: 30px;
+  text-align: center;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-image img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+}
+
 /* CARD */
 .card {
   margin-top: 20px;
@@ -277,5 +300,14 @@ th {
   .info:hover .tooltip {
     left: 0;
     transform: none;
+  }
+
+  /* Ajustement pour l'image sur mobile */
+  .hero-image {
+    margin-top: 20px;
+  }
+  
+  .hero-image img {
+    border-radius: 8px;
   }
 }
