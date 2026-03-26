@@ -64,6 +64,38 @@
       </div>
     </section>
 
+  <section class="card">
+  <div class="table-header">
+    <h2>Graphiques</h2>
+
+    <div class="chart-toolbar">
+      <label for="filtreBuyin">Échantillon :</label>
+      <select id="filtreBuyin">
+        <option value="all">Tout</option>
+        <option value="250">250 €</option>
+        <option value="150">150 €</option>
+        <option value="100">100 €</option>
+        <option value="50">50 €</option>
+        <option value="20">20 €</option>
+        <option value="10">10 €</option>
+        <option value="5">5 €</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="charts-grid">
+    <div class="chart-box">
+      <h3>Bankroll over time</h3>
+      <canvas id="bankrollChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+      <h3>Monthly performance</h3>
+      <canvas id="monthlyChart"></canvas>
+    </div>
+  </div>
+</section>
+
     <!-- STATS -->
     <section class="grid-stats">
 
